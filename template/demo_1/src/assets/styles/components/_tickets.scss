@@ -1,0 +1,157 @@
+.tickets-tab-switch {
+  border-bottom: none;
+  display: flex;
+  justify-content: space-between;
+
+  .nav-item {
+      display: block;
+      width: 33.33%;
+      padding: 0 0px 0 0;
+
+      @include media-breakpoint-down(sm) {
+          width: 100%;
+      }
+
+      .nav-link {
+          display: flex;
+          align-items: center;
+          background: $tab-head-bg; 
+          padding: 20px;
+          text-align: left;
+          font-weight: 600;
+          border: none;
+          border-radius: 4px;
+          transition-duration: 0.3s;
+          transition-timing-function: ease-in;
+          transition-property: "background", "color";
+          margin: 5px 5px;
+
+          .badge {
+              margin-left: auto;
+              background: theme-color(primary); 
+              color: $accent-color;
+              transition-duration: 0.3s;
+              transition-timing-function: ease-in;
+              transition-property: "background", "color";
+          }
+
+          &.active {
+              background: theme-color(primary);
+              border-radius: 4px;
+              color: $accent-color;
+              border: none;
+
+              .badge {
+                  background: theme-color(warning);
+                  color: $accent-color;
+              }
+          }
+      }
+  }
+    .tab-content {
+        border: none;
+        padding: 1rem;
+    }
+}
+
+.tickets-date-group {
+  display: flex;
+  align-items: center;
+  color: $text-muted;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-weight: 500;
+
+  i {
+      margin-right: 10px;
+      font-size: 20px;
+  }
+}
+
+.tickets-card {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  color: $body-color;
+  transition-duration: 0.3s;
+  transition-property: "background";
+
+  .tickets-details {
+      margin-right: auto;
+
+      .wrapper {
+          display: flex;
+          align-items: center;
+
+          h5 {
+              margin-bottom: 0;
+          }
+
+          span {
+              margin-left: 10px;
+
+              &:first-child {
+                  margin-left: 0;
+              }
+
+              i {
+                  margin-right: 5px;
+                  font-size: 15px;
+              }
+        }
+      }
+
+      h5 {
+          margin-bottom: 8px;
+      }
+
+      .badge {
+          margin-left: 15px;
+      }
+
+      .assignee-avatar {
+          width: 20px;
+          height: 20px;
+          border-radius: 100%;
+          margin-left: 10px;
+      }
+    }
+
+  .ticket-float {
+      display: inline-flex;
+      align-items: center;
+
+      @include media-breakpoint-down(sm) {
+          margin-top: 20px;
+      }
+
+      span {
+          @extend .ellipsis;
+      }
+
+      img,
+      .category-icon {
+          margin-right: 10px;
+      }
+
+      .category-icon {
+          font-size: 22px;
+          color: $text-muted;
+      }
+  }
+
+  &:hover {
+      text-decoration: none;
+      color: inherit;
+      background: lighten($card-bg, 5%);
+  }
+  @media (max-width:567px) {
+      padding: 15px 0;
+  }
+}

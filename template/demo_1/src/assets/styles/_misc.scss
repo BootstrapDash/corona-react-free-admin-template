@@ -1,0 +1,120 @@
+/* Miscellanoeous */
+body,
+html {
+  overflow-x: hidden;
+  padding-right: 0; // resets padding right added by Bootstrap modal
+}
+
+body {
+  background: $content-bg;
+}
+
+*:-moz-full-screen,
+*:-webkit-full-screen,
+*:fullscreen *:-ms-fullscreen {
+  overflow: auto;
+}
+
+.page-body-wrapper {
+  min-height: calc(100vh - #{$navbar-height});
+  @include display-flex();
+  @include flex-direction(row);
+  padding-left: 0;
+  padding-right: 0;
+  width: calc(100% - #{$sidebar-width-lg});
+  transition: width $action-transition-duration $action-transition-timing-function, margin $action-transition-duration $action-transition-timing-function;
+
+  &.full-page-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 0;
+
+    .main-panel {
+      padding-top: 0;
+
+      .content-wrapper {
+        padding: 0;
+
+        > div {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  @media (max-width:992px) {
+    width: 100%;
+  }
+}
+
+.main-panel {
+  transition: width $action-transition-duration $action-transition-timing-function, margin $action-transition-duration $action-transition-timing-function;
+  width: 100%;
+  min-height: calc(100vh - #{$navbar-height});
+  padding-top: $navbar-height;
+  @include display-flex();
+  @include flex-direction(column);
+  @media (max-width: 991px) {
+    margin-left: 0;
+    width: 100%;
+  }
+  &.main-panel-only {
+    transition: none;
+  }
+}
+
+.content-wrapper {
+  background: $content-bg;
+  padding: $content-padding;
+  width: 100%;
+  @include flex-grow(1);
+}
+
+.container-scroller {
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+pre {
+  background: color(gray-lighter);
+  padding: 15px;
+  font-size: 14px;
+}
+
+code {
+  padding: 5px;
+  color: theme-color(danger);
+  font-family: $type1;
+  font-weight: $font-weight-light;
+  font-size: $default-font-size;
+  border-radius: 4px;
+}
+
+.page-header {
+  @extend .d-flex;
+  @extend .justify-content-between;
+  @extend .align-items-center;
+  margin: 0 0 1.5rem 0;
+  .breadcrumb {
+    border: 0;
+    margin-bottom: 0;
+  }
+}
+.page-title {
+  color: $body-color;
+  font-size: 1.125rem;
+  margin-bottom: 0;
+  .page-title-icon {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0px 3px 8.3px 0.7px rgba(163, 93, 255, 0.35);
+    i {
+      font-size: .9375rem;
+      line-height: 36px;
+    }
+  }
+}
